@@ -8,7 +8,7 @@ from pyowm.weatherapi30.observation import Observation
 from pyowm.weatherapi30.weather import Weather
 from starlette.status import HTTP_401_UNAUTHORIZED, HTTP_404_NOT_FOUND
 
-from src.app import own_manager, token_handler, supabase_client
+from src.app import own_manager, supabase_client, token_handler
 from src.models import User
 from src.token_handler import Token
 

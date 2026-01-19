@@ -3,7 +3,6 @@ from __future__ import annotations
 from typing import Final, TypedDict, cast
 
 from jwt import decode, encode
-from jwt.exceptions import ExpiredSignatureError, InvalidTokenError
 from pydantic import BaseModel
 
 from src.models.user import User
