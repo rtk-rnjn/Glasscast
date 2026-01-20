@@ -88,3 +88,14 @@ async def add_favorite_city(
 
     supabase_client.from_("cities").insert({"user_email": current_user.sub, "city_id": int(id)}).execute()
     return True
+
+
+@router.get("/favorites")
+async def get_favorite_cities(
+    current_user: Token = Depends(get_current_user),
+) -> list[int]:
+    response = supabase_client.from_("cities").select("city_id").eq("user_email", current_user.sub).execute()
+    favorite_cities = response.data
+
+    city_ids: list[int] = [city["city_id"] for city in favorite_cities]
+    return list(set(city_ids))
